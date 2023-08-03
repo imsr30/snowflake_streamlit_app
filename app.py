@@ -56,12 +56,6 @@ st.header("The Fruit Load Contains")
 
 st.button("Get Fruit Load List")
 
-
-my_data_row = my_cur.fetchall()
-st.header("The Fruit Load Contains:")
-st.dataframe(my_data_row)
-
-
 added_fruit = st.text_input("What fruit would you like to add ?","jackfruit")
 st.write(f"Thanks for Adding {added_fruit}")
 # my_cur.execute(f"INSERT INTO FRUIT_LOAD_LIST VALUES ('{added_fruit}')")
