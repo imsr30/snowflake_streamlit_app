@@ -39,9 +39,24 @@ try:
 except URLError as e:
   st.error()
 
-my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
+def get_connections():
+  my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+  my_cur = my_cnx.cursor()
+  return my_cur
+
+def fruit_load_list():
+  conn = get_connections()
+  conn.execute("SELECT * FROM FRUIT_LOAD_LIST")
+  smy_data_row = conn.fetchall()
+  st.header("The Fruit Load Contains:")
+  st.dataframe(my_data_row)
+
+
+st.header("The Fruit Load Contains")
+
+st.button("Get Fruit Load List")
+
+
 my_data_row = my_cur.fetchall()
 st.header("The Fruit Load Contains:")
 st.dataframe(my_data_row)
