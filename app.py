@@ -51,6 +51,11 @@ def fruit_load_list():
   st.header("The Fruit Load Contains:")
   st.dataframe(my_data_row)
 
+def load_new_fruit(added_fruit):
+  st.write(f"Thanks for Adding {added_fruit}")
+  conn = get_connections()
+  conn.execute(f"INSERT INTO FRUIT_LOAD_LIST VALUES ('{added_fruit}')")
+
 
 st.header("The Fruit Load Contains")
 
@@ -58,5 +63,6 @@ if st.button("Get Fruit Load List"):
   fruit_load_list()
 
 added_fruit = st.text_input("What fruit would you like to add ?","jackfruit")
-st.write(f"Thanks for Adding {added_fruit}")
-# my_cur.execute(f"INSERT INTO FRUIT_LOAD_LIST VALUES ('{added_fruit}')")
+
+if st.button("Add a fruit to the list"):
+  load_new_fruit(added_fruit)
