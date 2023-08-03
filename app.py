@@ -64,5 +64,8 @@ if st.button("Get Fruit Load List"):
 
 added_fruit = st.text_input("What fruit would you like to add ?",placeholder = "jackfruit")
 
-if st.button("Add a fruit to the list"):
-  load_new_fruit(added_fruit)
+if added_fruit:
+  if st.button("Add a fruit to the list"):
+    load_new_fruit(added_fruit)
+else:
+  st.error("The Field is Empty")
