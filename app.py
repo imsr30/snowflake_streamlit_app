@@ -47,14 +47,15 @@ def get_connections():
 def fruit_load_list():
   conn = get_connections()
   conn.execute("SELECT * FROM FRUIT_LOAD_LIST")
-  smy_data_row = conn.fetchall()
+  my_data_row = conn.fetchall()
   st.header("The Fruit Load Contains:")
   st.dataframe(my_data_row)
 
 
 st.header("The Fruit Load Contains")
 
-st.button("Get Fruit Load List")
+if st.button("Get Fruit Load List"):
+  fruit_load_list()
 
 added_fruit = st.text_input("What fruit would you like to add ?","jackfruit")
 st.write(f"Thanks for Adding {added_fruit}")
