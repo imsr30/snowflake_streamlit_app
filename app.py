@@ -62,7 +62,7 @@ st.header("The Fruit Load Contains")
 if st.button("Get Fruit Load List"):
   fruit_load_list()
 
-added_fruit = st.text_input("What fruit would you like to add ?","jackfruit")
+added_fruit = st.text_input("What fruit would you like to add ?",placeholder = "jackfruit")
 
 if st.button("Add a fruit to the list"):
   load_new_fruit(added_fruit)
